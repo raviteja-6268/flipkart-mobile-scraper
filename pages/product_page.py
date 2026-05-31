@@ -131,29 +131,23 @@ class ProductPage(BasePage):
 
         for text in texts:
 
-            # Start after product name
             if "GlideEase M Running Shoes For Men (Black , 6)" in text:
                 capture = True
 
                 continue
 
-            # Stop before offers section
             if "₹63 off" in text:
                 break
 
             if capture:
 
-                # Ignore discount banners
                 if "off" in text.lower():
                     continue
 
-                # Ignore promo price
                 if "₹" in text:
                     continue
 
-                # Listing price usually:
-                # 3,599
-                # 4,999
+
 
                 cleaned_text = text.strip()
 
@@ -174,7 +168,6 @@ class ProductPage(BasePage):
 
         for text in texts:
 
-            # Start after product name
             if text == product_name:
                 capture = True
 
@@ -215,7 +208,6 @@ class ProductPage(BasePage):
 
             if capture:
 
-                # Actual product discount
                 if "%" in text:
                     return text
 
@@ -297,7 +289,6 @@ class ProductPage(BasePage):
                         "content-desc"
                     )
 
-                    # Start after Selected Color section
                     if desc and "Selected Color" in desc:
                         capture = True
 

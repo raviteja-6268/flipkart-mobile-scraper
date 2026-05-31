@@ -5,7 +5,6 @@ DB_NAME = "flipkart_scraper"
 
 
 def init_db():
-    """Creates the scraping tables if they do not exist."""
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
@@ -32,7 +31,6 @@ def init_db():
 
 
 def save_product_to_sql(data_dict):
-    """Inserts scraped item specs safely, ignoring duplicates based on name."""
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
@@ -57,7 +55,6 @@ def save_product_to_sql(data_dict):
 
 
 def export_db_to_excel(excel_path="scraped_output.xlsx"):
-    """Reads the SQL database tables and dumps them cleanly to an Excel file."""
     conn = sqlite3.connect(DB_NAME)
     df = pd.read_sql_query("SELECT * FROM products", conn)
     df.to_excel(excel_path, index=False)

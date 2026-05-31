@@ -14,10 +14,10 @@ class HomePage(BasePage):
     # )
 
     def search_product(self, product_name):
-        # Tap search box
+
         self.tap_by_coordinates(370, 450)
 
-        # Enter adidas
+
         self.driver.execute_script(
             "mobile: type",
             {
